@@ -1,0 +1,97 @@
+<div style="display: flex;justify-content: center;transform: translateY(77px);" th:fragment="html">
+    <script>
+        $(function () {
+            var data4Vue = {
+                uri: 'foreregister',
+                result: [],
+                // user: {name: 'weiya', password: '123123', repeatpassword: '123123'}
+                user: {name: '', password: '', repeatpassword: ''}
+            };
+            //ViewModel
+            var vue = new Vue({
+                el: '#workingArea',
+                data: data4Vue,
+                mounted: function () {
+                    linkDefaultActions();
+                },
+                methods: {
+                    register: function () {
+                        var url = this.uri;
+                        if (0 == this.user.name.length) {
+                            $("span.errorMessage").html("请输入用户名");
+                            $("div.registerErrorMessageDiv").css("visibility", "visible");
+                            return;
+                        }
+                        if (0 == this.user.password.length) {
+                            $("span.errorMessage").html("请输入密码");
+                            $("div.registerErrorMessageDiv").css("visibility", "visible");
+                            return;
+                        }
+                        if (0 == this.user.repeatpassword.length) {
+                            $("span.errorMessage").html("请输入重复密码");
+                            $("div.registerErrorMessageDiv").css("visibility", "visible");
+                            return;
+                        }
+                        if (this.user.password != this.user.repeatpassword) {
+                            $("span.errorMessage").html("重复密码不一致");
+                            $("div.registerErrorMessageDiv").css("visibility", "visible");
+                            return;
+                        }
+
+                        axios.post(url, this.user).then(function (response) {
+                            var result = response.data;
+                            if (result.code == 0) {
+                                location.href = "registerSuccess";
+                            } else {
+                                $("span.errorMessage").html(result.message);
+                                $("div.registerErrorMessageDiv").css("visibility", "visible");
+                            }
+                        });
+                    }
+                }
+            });
+        })
+    </script>
+    <div class="registerDiv" style="border: #0770ca solid;width: 37vw;height: 477px;flex-direction: column;display: flex;justify-content: center;align-items: center;">
+        <div class="registerErrorMessageDiv">
+            <div class="alert alert-danger" role="alert" style="background-color: #27679e;color: #eee">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <span class="errorMessage"></span>
+            </div>
+        </div>
+
+
+        <table class="registerTable" align="center">
+            <tr>
+                <td class="registerTip registerTableLeftTD" style="width:160px">设置用户名称</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="registerTableLeftTD" style="width:160px">用户名称</td>
+                <td class="registerTableRightTD"><input v-model="user.name" placeholder="请输入您的用户"></td>
+            </tr>
+            <tr>
+                <td class="registerTip registerTableLeftTD" style="width:160px">设置登陆密码</td>
+<!--                <td class="registerTableRightTD">登陆时验证，保护账号信息</td>-->
+            </tr>
+            <tr>
+                <td class="registerTableLeftTD" style="width:160px">登陆密码</td>
+                <td class="registerTableRightTD"><input v-model="user.password" type="password" placeholder="请输入您的密码">
+                </td>
+            </tr>
+            <tr>
+                <td class="registerTableLeftTD" style="width:160px">确认密码</td>
+                <td class="registerTableRightTD"><input v-model="user.repeatpassword" type="password"
+                                                        placeholder="请再次输入您的密码"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="registerButtonTD">
+                    <a @click="register">
+                        <button style="width: 342px;transform: translateX(3px);background-color: #2088e2">立即注册</button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

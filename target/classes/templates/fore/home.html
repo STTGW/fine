@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/fore/header::html"></head>
+<body>
+<div id="workingArea">
+    <div th:replace="include/fore/top::html"></div>
+    <div th:replace="include/fore/search::html"></div>
+    <div th:replace="include/fore/home/homePage::html"></div>
+
+<!--    <div th:replace="include/fore/footer::html"></div>-->
+</div>
+<a href="#" class="totop" style="position: fixed;right: 0;bottom: 0;transition: .5s">
+    <img id="fire" style="height: 100px;width: 150px" src="img/site/fire.png"/>
+</a>
+<script>
+    $(document).ready(function(){
+
+        // show/hide the back-to-top button
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('#fire').fadeIn();
+            } else {
+                $('#fire').fadeOut();
+            }
+        });
+
+        // scroll body to 0px on click
+        $('#fire').click(function(){
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+
+    });
+</script>
+
+</body>
+</html>

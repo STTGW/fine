@@ -1,0 +1,30 @@
+.NtuBox {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    transform: translateX(1.4vw);
+}
+.rrrrr{
+    transform: translateX(87.3vw);
+
+}
+.picBox .pic {
+
+    width: 170px;
+    height:170px;
+
+}
+
+.textBox {
+    width: 150px;
+    color: #669F76;
+    text-align-last: justify;
+    /*text-shadow: 0px 0px 16px #00000030;*/
+    font-weight: 600;
+    font-size: larger;
+}

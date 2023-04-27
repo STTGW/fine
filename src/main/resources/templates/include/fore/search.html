@@ -1,0 +1,36 @@
+<div class th:fragment="html"  >
+    <a th:href="${application.contextPath}">
+<!--    <a th:href="/">-->
+
+        <a href="/"><img id="logo" src="img/site/xiaohui.png" class="logo" ></a>
+    </a>
+    <form action="search" method="get">
+        <div class="searchDiv" style="background-color: #3c763d" >
+            <input name="keyword" type="text" placeholder="搜你想搜 ">
+            <button type="submit" class="searchButton" style="background-color: #3c763d">S一下</button>
+            <div class="searchBelow">
+				<span th:each="c,status: ${application.categories_below_search}"
+                      th:if="${status.index>=5 && status.index<=8}">
+					<a th:href="@{'category?cid='+${c.id}}" th:text="${c.name}"></a>
+					<span th:if="${status.index!=8}">|</span>
+	            </span>
+
+            </div>
+        </div>
+
+        <span style="font-size: 18px;
+    position: absolute;
+    transform: translate(1175px, -91px);
+    border: 2px solid #eee;
+    padding: 5px;
+    /* transform: translateX(18px); */
+    color: #d73636;">
+			<a href="cart" style="color:#C40000;">
+			<span style="color:#C40000;margin:0px;" class=" glyphicon glyphicon-shopping-cart redColor"></span>
+			我的购物车</a>
+	</span>
+
+    </form>
+</div>
+
+
