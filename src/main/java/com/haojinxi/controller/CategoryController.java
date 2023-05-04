@@ -38,7 +38,7 @@ public class CategoryController {
     //后台首页获取分类
     @RequestMapping("/categories")
     public PageInfo<Category> list(@RequestParam(value = "start",required = true,defaultValue = "1") Integer start,
-                                   @RequestParam(value = "size",required = true,defaultValue = "3") Integer size,
+                                   @RequestParam(value = "size",required = true,defaultValue = "6") Integer size,
                                    HttpServletResponse response){
         PageHelper.startPage(start,size);
 

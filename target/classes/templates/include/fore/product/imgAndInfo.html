@@ -47,8 +47,8 @@
                                 $("#cartNumber").text(result.data);
                                 $(".addCartButton").html("已加入购物车");
                                 $(".addCartButton").attr("disabled", "disabled");
-                                $(".addCartButton").css("background-color", "lightgray")
-                                $(".addCartButton").css("border-color", "lightgray")
+                                $(".addCartButton").css("background-color", "lightgoldenrodyellow")
+                                $(".addCartButton").css("border-color", "#c40000")
                                 $(".addCartButton").css("color", "black")
                             }
                         });
@@ -67,7 +67,9 @@
                         var url = "forebuyone?pid=" + pid + "&num=" + num;
                         axios.get(url).then(function (response) {
                             var oiid = response.data;
+                            console.log(response+"22222222")
                             location.href = "buy?oiid=" + oiid;
+                            // location.href = "cart"
                         });
                     } else {
                         $("#loginModal").modal('show');
@@ -220,7 +222,7 @@
             </div>
 
             <div class="buyDiv">
-                <a class="buyLink">
+                <a class="buyLink" >
                     <button class="buyButton">立即购买</button>
                 </a>
                 <a href="#nowhere" class="addCartLink">

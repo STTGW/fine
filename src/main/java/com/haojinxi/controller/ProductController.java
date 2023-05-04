@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
@@ -144,11 +145,13 @@ public class ProductController {
 
     /*根据id更改产品*/
     @PutMapping("/products/{id}")
-    public Result updateProperty(@RequestBody Product Product){
+    public Result updateProperty(@RequestBody Product Product, HttpServletRequest request){
+        System.out.println("测试一下"+ request.getRequestURI());
         Integer cid = Product.getCid();
         HashMap<String, Object> obj = new HashMap<>();
         obj.put("cid",cid);
         productService.saveOrUpdate(Product);
+        System.out.println("测试一下"+ request.getRequestURI());
 
         return Result.success(obj);
     }

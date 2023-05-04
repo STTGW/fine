@@ -1,5 +1,6 @@
 <div th:fragment="html">
-    <div class="categoryMenu" style="transform: translateX(-203px);">
+    <div class="categoryMenu" style="transform: translateX(-200px);background: #F7F9FA">
+<!--    <div  style="transform: translateX(-200px);background: #F7F9FA">-->
         <div :cid="c.id" class="eachCategory" v-for="c,index in categories" v-if="index<17">
             <span class="glyphicon glyphicon-link"></span>
             <a :href="'category?cid='+c.id">

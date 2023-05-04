@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为你推荐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: inherit;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 55vw;
+        }
+
+        .item-box {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: .3s;
+        }
+
+        .item-box:hover {
+            border-radius: 20px;
+            cursor: pointer;
+            border: 1px solid red;
+        }
+
+        .item {
+            height: 311px;
+            width: 225px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .item-image-box {
+            overflow: hidden;
+        }
+
+        .item-image-box img {
+            height: 179px;
+            width: 225px;
+        }
+
+        .item-price {
+            color: red;
+            font-size: large;
+            font-weight: 550;
+            margin-left: 5px;
+        }
+
+        .item-name {
+            margin-top: 10px;
+            font-size: small;
+            margin-left: 5px;
+            height: 46px;
+        }
+
+        .item-sale {
+            margin-top: 10px;
+            border-top: #ccc 1px solid;
+            height: 30px;
+            padding-left: 5px;
+        }
+
+        .item-saleCount {
+
+            color: #b0b0b0;
+        }
+
+        .item-saleCount-num {
+            color: #CE9178;
+            font-weight: 560;
+        }
+
+        .a-image{
+            position: absolute;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+
+        }
+
+        .title {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 23px;
+        }
+
+        .title-texts {
+            background: white !important;
+            display: flex;
+            align-items: center;
+            font-size: 52px;
+            margin: 0px 35px;
+            transform: translateY(-5px);
+
+        }
+
+        .title img{
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+<a class="a-image" href="/"><img id="logo" src="img/site/xiaohui.png" class="logo" ></a>
+<div class="title">
+    <img src="img/site/recomnin.png" alt="">
+    <text class="title-texts">商品推荐</text>
+    <img src="img/site/recomnin.png" alt="">
+</div>
+<div id="app" class="container">
+    <div v-for="item in product">
+        <div class="item-box">
+            <a :href="'product?pid=' + item.id">
+                <div class="item">
+                    <div class="item-image-box">
+                        <img :src="'img/productSingle_middle/'+item.firstProductImage.id+'.jpg'">
+                    </div>
+                    <span class="item-price">{{item.promotePrice}}.00</span>
+                    <div class="item-name">{{item.name}}</div>
+                    <div class="item-sale">
+                        <span class="item-saleCount">销量</span>
+                        <span class="item-saleCount-num">{{item.saleCount}}</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+
+<script src="js/vue/2.5.16/vue.min.js"></script>
+<script src="js/axios/0.17.1/axios.min.js"></script>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            product: []
+        },
+
+        methods: {
+
+        },
+        created() {
+            axios.get('/recom')
+                .then(res => {
+                    this.product = res.data
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+        }
+    })
+</script>
+</body>
+
+</html>

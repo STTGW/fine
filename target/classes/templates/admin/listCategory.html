@@ -3,8 +3,44 @@
 
 <head th:include="include/admin/adminHeader::html('分类管理')">
 
+    <style>
+        .button {
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        /* border-radius: 30px; */
+        font-size: 20px;
+        color: #fff;
+        background: linear-gradient(to right, #ff6b6b, #c0392b);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    </style>
+
+
 </head>
 <body>
+
+
+<a th:href="@{/}" th:target="_blank" style=" display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        /* border-radius: 30px; */
+        font-size: 20px;
+        color: #fff;
+        background: linear-gradient(to right, #ff6b6b, #c0392b);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;position: relative;
+    right: -854px;
+    top: 12px;text-decoration: none;">前往购物前台</a>
+
 <div th:replace="include/admin/adminNavigator::htmlNavigator"></div>
 <script>
     $(function () {
@@ -29,7 +65,7 @@
                     var url = this.uri + "?start=" + start;
                     axios.get(url).then(function (response) {
                         // console.log(response)
-                        // console.log(response.data)
+                        console.log(response.data)
                         // console.log(response.data.list)
                         vue.pagination = response.data;
                         vue.beans = response.data.list;

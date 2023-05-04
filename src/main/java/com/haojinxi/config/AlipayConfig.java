@@ -7,9 +7,9 @@ public class AlipayConfig {
 
     public static String alipay_public_key ="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm805e493IVzbIa+mowAPpJpJph1gOa4CzIN+sqYqVi7UW4UKUHm+zqkcXcQgaORj7FmDTZ3oLvdZVZVkOYh1cSCv8qzVI5aO2vwlnygygH3jeFc64UV/fa1r0fGxHP1emDhnoHxKbsTfudDuXAMCoKfh9nKTt0j8YQ4usIGr6ZMEptLFQEvk91goqBzJfu0ogYrCLQ0Sdyu6mszpE3AtZ2/LESsjY0nZRuOc6Z/NYcA/REe5WsGMAFzGXi54yZf/K1NDh99X1T3ekComnf6OGsJN7MUdR6m67WRglPQ0M3lRo7yvedl5+EB6tyggdODSkAtGkQHaIiO2/348wEjFPwIDAQAB";
 
-    public static String notify_url = "http://localhost:6666/alipayNotifyNotice";
+    public static String notify_url = "http://localhost:1314/alipayNotifyNotice";
 
-    public static String return_url = "http://localhost:6666/alipayReturnNotice";
+    public static String return_url = "http://localhost:1314/alipayReturnNotice";
 
     public static String sign_type = "RSA2";
 

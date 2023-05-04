@@ -4,8 +4,21 @@
 
         <a href="/"><img id="logo" src="img/site/xiaohui.png" class="logo" ></a>
     </a>
+
+
+
+
+
     <form action="search" method="get">
+
+
+
+
         <div class="searchDiv" style="background-color: #3c763d" >
+
+
+
+
             <input name="keyword" type="text" placeholder="搜你想搜 ">
             <button type="submit" class="searchButton" style="background-color: #3c763d">S一下</button>
             <div class="searchBelow">
@@ -29,6 +42,10 @@
 			<span style="color:#C40000;margin:0px;" class=" glyphicon glyphicon-shopping-cart redColor"></span>
 			我的购物车</a>
 	</span>
+
+
+        <span style="transform: translate(156px, -106px);position: absolute;font-size: 50px;">当前用户登录人数：<span th:text="${#servletContext.getAttribute('count')}"></span></span>
+<!--        <span style="transform: translate(156px, -106px);position: absolute;font-size: 50px;">当前在线访客人数：<span th:text="${#maps.size(onlineUserUtils.loginUsers)}"></span></span>-->
 
     </form>
 </div>

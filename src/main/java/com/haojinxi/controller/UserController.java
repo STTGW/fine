@@ -9,11 +9,13 @@ import com.haojinxi.entity.User;
 import com.haojinxi.result.Result;
 import com.haojinxi.service.OrderitemService;
 import com.haojinxi.service.UserService;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -36,6 +38,9 @@ public class UserController {
 
     @Autowired
     private OrderitemService orderitemService;
+
+    @Autowired
+    HttpServletRequest httpServletRequest;
 
     //用户注册
     @PostMapping("/foreregister")
@@ -91,6 +96,12 @@ public class UserController {
 
 
             String path = (String) session.getAttribute("currentPath");
+
+
+
+
+
+
             return Result.success(path);
 
             //统计购物车数量 session.cartTotalItemNumber
@@ -98,6 +109,8 @@ public class UserController {
 //            session.setAttribute("cartTotalItemNumber",count);
 //            String path = (String) session.getAttribute("currentPath");
 //            return Result.success();
+
+
         }
 
     }

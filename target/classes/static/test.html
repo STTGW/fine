@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+test页面
+</body>
+<script>
+    //设置cookie
+
+    function setCookie(cname, cvalue, exdays) {
+
+        var d = new Date();
+
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+
+        var expires = "expires="+d.toUTCString();
+
+        document.cookie = cname + "=" + cvalue + "; " + expires+";Path=/; HttpOnlyPath=/; HttpOnly";
+
+    }
+
+
+
+    //清除cookie
+
+    function clearCookie(name) {
+
+        setCookie(name, "", -1);
+
+    }
+    clearCookie("JSESSIONID")
+</script>
+</html>

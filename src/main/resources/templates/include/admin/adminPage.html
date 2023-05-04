@@ -2,10 +2,12 @@
     <nav>
         <ul class="pagination">
             <li :class="{ disabled: pagination.isFirstPage }">
-                <a href="#nowhere" @click="jump('first')">«</a>
+<!--                <a href="#nowhere" @click="jump('first')">«</a>-->
+                <a href="#nowhere" @click="jump('first')">首页</a>
             </li>
             <li :class="{ disabled: !pagination.hasPreviousPage }">
-                <a href="#nowhere" @click="jump('pre')">‹</a>
+<!--                <a href="#nowhere" @click="jump('pre')">‹</a>-->
+                <a href="#nowhere" @click="jump('pre')">上一页</a>
             </li>
 
             <li v-for="i in pagination.navigatepageNums">
@@ -15,10 +17,12 @@
             </li>
 
             <li :class="{ disabled: !pagination.hasNextPage }">
-                <a href="#nowhere" @click="jump('next')">›</a>
+<!--                <a href="#nowhere" @click="jump('next')">›</a>-->
+                <a href="#nowhere" @click="jump('next')">下一页</a>
             </li>
             <li :class="{ disabled: pagination.isLastPage }">
-                <a href="#nowhere" @click="jump('last')">»</a>
+<!--                <a href="#nowhere" @click="jump('last')">»</a>-->
+                <a href="#nowhere" @click="jump('last')">尾页</a>
             </li>
         </ul>
     </nav>

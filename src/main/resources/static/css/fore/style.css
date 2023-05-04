@@ -120,6 +120,7 @@ div.carousel-inner div.item img {
 div.categoryWithCarousel div.categoryMenu {
     width: 200px;
     background-color: #e2e2e3;
+    /*background-color: #F7F9FA;*/
     /* 	padding-bottom:10px; */
     margin-left: 20px;
     position: absolute;
@@ -257,7 +258,8 @@ img.logo {
 }
 
 div.homepageCategoryProducts {
-    background-color: #F5F5F5;
+    /*background-color: #F5F5F5;*/
+    background-color: #F7F9FA;
     padding: 50px 10px 50px 10px;
     margin: 10px auto;
     max-width: 1013px;

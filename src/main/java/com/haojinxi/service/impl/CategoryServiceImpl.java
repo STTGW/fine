@@ -59,7 +59,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
     @Override
     public void fillProductsByRow(List<Category> categories) {
-        int productNumberEachRow = 3;
+        int productNumberEachRow = 1;
         // 1 2 3 4 5 6 7
         for (Category category : categories) {
             List<Product> products =  category.getProducts();

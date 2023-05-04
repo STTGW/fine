@@ -1,24 +1,112 @@
 <nav class="top" th:fragment="html" style="font-size: 20px" >
     <a href="/">
-        <span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-home redColor"></span>
+<!--        <span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-home redColor"></span>-->
+
+        <img style="width: 20px;transform: translateY(-2px);" src="img/site/mallleft2.png">
+
+
+        <span style="color:#C40000;margin:0px" ></span>
+
         首页
     </a>
 
-    <span>欢迎来到商城</span>
+    <span>欢迎来到杏林商城</span>
 
     <span th:if="${null!=session.user}">
 		<a href="login" th:text="${session.user.name}"></a>
 		<a href="forelogout">退出</a>
+        <img  style="margin: 0px 0px 0px 400px;height: 20px;width: 20px;transform: translate(15px, -2px);;" src="img/site/iconlocation.png">
+
+
+        <span th:text="${#servletContext.getAttribute('result')}"></span>
 	</span>
 
 
     <span th:if="${null==session.user}">
 		<a href="login">登录</a>
 		<a href="registerPage">注册</a>
+
+        <img  style="margin: 0px 0px 0px 400px;height: 20px;width: 20px;transform: translate(15px, -2px);;" src="img/site/iconlocation.png">
+       <span style="" th:text="${#servletContext.getAttribute('result')}"></span>
+
 	</span>
+
+<!--    <script>-->
+<!--    window.onbeforeunload = function() {-->
+<!--    var xhr = new XMLHttpRequest();-->
+<!--    xhr.open('GET', '/deleteSession', false);-->
+<!--    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');-->
+<!--    xhr.send();-->
+<!--    }-->
+<!--    </script>-->
+<!--    <form action="#" th:action="@{/delete}" method="post">-->
+<!--        <button type="submit">已离开</button>-->
+<!--    </form>-->
+
+<!--    <a href="/delete"><button class="niubi" type="submit" style="height: 32px;">已离开</button></a>-->
+
+<!--    <script>-->
+<!--        // window.onload = function() {-->
+<!--        //     var xhr = new XMLHttpRequest();-->
+<!--        //     xhr.open('GET', 'http://127.0.0.1/ip', false);-->
+<!--        //     xhr.send()-->
+<!--        // }-->
+<!--        //     console.log(1111)-->
+
+<!--        // $(document).ready(function(){-->
+<!--        //     $(".niubi").bind("click", function(){-->
+<!--        //         console.log(2222222222)-->
+<!--        //         var xhr = new XMLHttpRequest();-->
+<!--        //         xhr.open('GET', 'http://127.0.0.1/ip', false);-->
+<!--        //         xhr.send()-->
+<!--        //-->
+<!--        //     });-->
+<!--        // });-->
+<!--    // </script>-->
+
+
+<!--    <script>-->
+<!--        // 获取当前页面的 URL-->
+<!--        let currentUrl = window.location.href;-->
+
+<!--        // 发送 GET 请求到后端-->
+<!--        fetch(currentUrl, {-->
+<!--            method: 'GET',-->
+<!--            headers: {-->
+<!--                'Content-Type': 'application/json'-->
+<!--            }-->
+<!--        })-->
+<!--            .then(response => {-->
+<!--                // 处理响应-->
+<!--                console.log('Received response:', response);-->
+<!--                // 刷新页面-->
+<!--                location.reload();-->
+<!--            })-->
+<!--            .catch(error => {-->
+<!--                console.error('Error occurred:', error);-->
+<!--            });-->
+<!--    </script>-->
+
+<!--    <script>-->
+<!--        fetch('/ip', {-->
+<!--            method: 'get',-->
+<!--            headers: {-->
+<!--                'Content-Type': 'application/json'-->
+<!--            },-->
+<!--            body: JSON.stringify({ message: 'This is a test' })-->
+<!--        })-->
+<!--            .then(response => {-->
+<!--                console.log('Received response:', response);-->
+<!--            })-->
+<!--            .catch(error => {-->
+<!--                console.error('Error occurred:', error);-->
+<!--            });-->
+<!--    </script>-->
 
 
     <span class="pull-right">
+<!--            <a href="recommend">为您推荐</a>-->
+            <a href="recomluo.html">商品推荐</a>
 			<a href="bought">我的订单</a>
 <!--			<a href="cart">-->
 <!--			<span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-shopping-cart redColor"></span>-->
