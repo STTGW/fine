@@ -1,6 +1,9 @@
 package com.haojinxi;
 
 
+import com.haojinxi.entity.UserInfo;
+import com.haojinxi.mapper.UserinfoMapper;
+import com.haojinxi.service.UserInfoService;
 import com.haojinxi.utils.IPUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,12 @@ public class TestApplication {
     @Resource
     DataSource dataSource;
 
+    @Autowired
+    UserInfoService userInfoService;
+
+    @Autowired
+    UserinfoMapper userinfoMapper;
+
 
 
     @Test
@@ -30,4 +39,17 @@ public class TestApplication {
 //        ipUtil.iPPro();
 
     }
+    @Test
+    void returnPass(){
+//        UserInfo userInfo = userinfoMapper.selectById(1);
+        UserInfo byId = userInfoService.getById(1);
+        System.out.println("你好啊老哥"+byId);
+
+    }
+
+    @Test
+    void test(){
+        System.out.println("搞啊啊"+1+1);
+    }
+
 }

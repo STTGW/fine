@@ -14,18 +14,19 @@
 
 
 
-        <div class="searchDiv" style="background-color: #3c763d" >
+        <div class="searchDiv" style="background-color: #232342" >
 
 
 
 
             <input name="keyword" type="text" placeholder="搜你想搜 ">
-            <button type="submit" class="searchButton" style="background-color: #3c763d">S一下</button>
+            <button type="submit" class="searchButton" style="background-color: #232342">S一下</button>
             <div class="searchBelow">
 				<span th:each="c,status: ${application.categories_below_search}"
-                      th:if="${status.index>=5 && status.index<=8}">
+                      th:if="${status.index>=5 && status.index<=9}">
 					<a th:href="@{'category?cid='+${c.id}}" th:text="${c.name}"></a>
-					<span th:if="${status.index!=8}">|</span>
+<!--					<span th:if="${status.index!=8}">|</span>-->
+					<span th:if="${status.index!=8}"></span>
 	            </span>
 
             </div>

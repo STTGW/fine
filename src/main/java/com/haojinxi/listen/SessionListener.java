@@ -14,8 +14,8 @@ import javax.servlet.http.*;
 public class SessionListener implements HttpSessionListener, HttpSessionAttributeListener, ServletContextListener {
 
     private int onlineCount = 0;//记录session的数量
-@Autowired
-private HttpServletRequest request;
+        @Autowired
+        private HttpServletRequest request;
 
     public int getOnlineCount(){
         return this.onlineCount;

@@ -270,7 +270,9 @@ div.left-mark {
     height: 20px;
     vertical-align: top;
     width: 5px;
-    background-color: #19C8A9;
+    /*background-color: #19C8A9;*/
+    background-color: #F7F9FA;
+
 }
 
 span.categoryTitle {
@@ -278,6 +280,10 @@ span.categoryTitle {
     margin-left: 30px;
     color: #646464;
     font-weight: bold;
+
+    position: relative;
+    right: -394px;
+    font-size: xxx-large;
 }
 
 div.productItem {
@@ -524,7 +530,8 @@ button.redButton {
 }
 
 div.categorySortBar {
-    background-color: #FAF9F9;
+    /*background-color: #FAF9F9;*/
+    background-color: white;
     margin: 40px 20px 20px 20px;
     padding: 4px;
 }
@@ -542,7 +549,8 @@ table.categorySortBarTable {
 }
 
 table.categorySortBarTable td a {
-    color: #806F66;
+    /*color: #806F66;*/
+    color: #333;
     font-size: 12px;
 }
 
@@ -551,17 +559,20 @@ table.categorySortBarTable td a:hover {
 }
 
 table.categorySortBarTable td.grayColumn {
-    background-color: #F1EDEC;
+    /*background-color: #F1EDEC;*/
+    /*background-color: #C40000;*/
 }
 
 table.categorySortBarTable td.priceMiddleColumn {
     width: 10px;
     vertical-align: middle;
-    color: #CCCCCC;
+    /*color: #CCCCCC;*/
+    /*color: #C40000;*/
 }
 
 table.categorySortTable td:hover {
-    background-color: #F1EDEC;
+    /*background-color: #F1EDEC;*/
+    /*background-color: #C40000;*/
 }
 
 table.categorySortBarTable span.glyphicon {
@@ -1108,13 +1119,16 @@ div.buyDiv button {
 }
 
 button.buyButton {
-    border: 1px solid #C40000;
-    background-color: #FFEDED;
+    /*border: 1px solid #C40000;*/
+    border: 1px solid #232342;
+    /*background-color: #FFEDED;*/
+    background-color: #232342;
     text-align: center;
     line-height: 40px;
     font-size: 16px;
     /* 	font-weight:700; */
-    color: #C40000;
+    /*color: #C40000;*/
+    color: white;
     font-family: arial;
 }
 

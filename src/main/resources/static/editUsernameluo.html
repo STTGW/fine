@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改昵称</title>
+    <script src="js/axios/0.17.1/axios.min.js"></script>
+    <script src="js/jquery/2.0.0/jquery.min.js"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .nickName {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body onload="getAll_info()">
+<script>
+    function getAll_info() {
+        axios.get('/getUsername').then(res => {
+            const { data } = res
+            const nick = document.querySelector('.nick-value')
+            nick.value = data
+        })
+
+        axios.get('/getUserInfo').then(res=>{
+            const {data:{realname,sex,content}} = res
+            const inputArry = Array.from($('.container-2-input'))
+            console.log(inputArry)
+            inputArry.forEach((item,index)=>{
+                if(index===0){
+                    item.value = realname
+                }else if(index === 1){
+                    item.value = sex
+                }else {
+                    item.value = content
+                }
+            })
+        })
+    }
+
+    function changeNick(){
+        const url = '/editUsername'
+        const data = document.querySelector('.nick-value').value
+        console.log(data)
+        // const options = {
+        //     headers: {
+        //         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+        //     }
+        // };
+        axios.post(url, data).then(res => {
+            if (res.data === '修改成功') {
+                alert('修改成功' + data)
+                window.open('/editUsernameluo.html',"_self")
+            }
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+    function submitNewInfo(){
+        const url = '/editUserinfo'
+        const data = document.querySelector('.nick-value').value
+        const inputArry = Array.from($('.container-2-input'))
+        const info = {}
+        inputArry.forEach((item,index)=>{
+            if(index===0){
+                info.realname = item.value
+            }else if(index === 1){
+                info.sex = item.value
+            }else {
+                info.content = item.value
+            }
+        })
+
+        axios.post(url,info).then(res=>{
+            console.log(info)
+            const {data} = res
+            console.log(data)
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+</script>
+
+<div class="container">
+    <div>个人中心</div>
+    <div class="nickName">
+        <span>昵称：</span>
+        <input class="nick-value"></input>
+        <button onclick="changeNick()">修改昵称</button>
+    </div>
+    <div class="container-2">
+        <span>其他信息</span>
+        <span>真实姓名：</span><input type="text" class="container-2-input">
+        <span>性别：</span><input type="text" class="container-2-input">
+        <span>简介：</span><input type="text" class="container-2-input">
+    </div>
+    <button onclick="submitNewInfo()">提交修改</button>
+</div>
+</body>
+
+</html>

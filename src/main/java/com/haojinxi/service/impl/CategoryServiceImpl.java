@@ -118,7 +118,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
             Collections.sort(products, new Comparator<Product>() {
                 @Override
                 public int compare(Product o1, Product o2) {
-                    return (int) (o1.getPromotePrice()-o2.getPromotePrice());
+                    return (int) (-o1.getPromotePrice()-o2.getPromotePrice());
                 }
             });
         }else if(sort.equals("date")){

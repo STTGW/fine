@@ -194,8 +194,8 @@ public class ForePageController {
 
 
     /*跳转到为您推荐页面*/
-    @GetMapping("/recommend")
-    public String recommand(){return "recomluo.html";}
+//    @GetMapping("/recommend")
+//    public String recommand(){return "recomluo.html";}
 
     /*首页推荐产品*/
     @GetMapping("/recom")

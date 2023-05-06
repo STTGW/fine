@@ -406,6 +406,9 @@ fieldset[disabled] .btn-danger.active {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
     background-repeat: repeat-x;
     border-radius: 4px;
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
 }
 
 .navbar-inverse .navbar-nav > .open > a,
