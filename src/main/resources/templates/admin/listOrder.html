@@ -23,27 +23,27 @@
             },
             methods: {
                 list: function (start) {
+                    console.log(start)
                     var url = this.uri + "?start=" + start;
-                    axios.get(url).then(function (response) {
+                    axios.get(url).then( (response)=> {
                         console.log(response.data)
                         vue.pagination = response.data;
+
+                        response.data.list.forEach((item)=>{
+                            item.show = false
+                        })
                         vue.beans = response.data.list;
+                        console.log(this.beans)
                     });
                 },
-                showOrderItems: function (order) {
+                showOrderItems: function (order,index) {
                     var id = order.id;
-
-                    if (this.checkShow!==id) {
-                        if (this.checkShow === 0) {
-                            this.checkShow = id
-                            $("#orderItemsTR" + id).show();
-                            return
-                        }
-                        $("#orderItemsTR" + id).show();
-
-                        $("#orderItemsTR" + this.checkShow)[0].attributes[2].value = '';
-                        this.checkShow = id
-                    }
+                    // console.log(index)
+                    this.checkShow = id
+                    // let {show} = this.beans[index]
+                    // console.log(show)
+                    // this.beans[index].show = !show
+                    // console.log(this.beans[index])
                 },
                 jump: function (page) {
                     jump(page, vue); //定义在adminHeader.html 中
@@ -104,7 +104,7 @@
             </thead>
             <tbody>
             <!-- 在业务上需要一个订单数据产生两行 tr, 此时就不能在 tr上进行 v-for, 而需要用 template 标签 -->
-            <template v-for="bean in beans ">
+            <template v-for="(bean,index) in beans ">
                 <tr>
                     <td>
                         {{bean.orderCode}}
@@ -134,7 +134,7 @@
                         {{bean.confirmDate | formatDateFilter}}
                     </td>
                     <td>
-                        <button @click="showOrderItems(bean)" class="orderPageCheckOrderItems btn btn-primary btn-xs">
+                        <button @click="showOrderItems(bean,index)" class="orderPageCheckOrderItems btn btn-primary btn-xs">
                             查看详情
                         </button>
 
@@ -144,11 +144,13 @@
 
                     </td>
                 </tr>
-                <tr class="orderPageOrderItemTR" :id="'orderItemsTR'+bean.id">
+                <tr class="orderPageOrderItemTR" :id="'orderItemsTR'+bean.id"  v-show="bean.id==checkShow">
+
+<!--                <tr class="orderPageOrderItemTR" :id="bean.id"  :ref="bean.id" :style="$attrs.['data-id'] == checkShow? 'display: table-row;':''">-->
                     <td colspan="10" align="center">
 
                         <div class="orderPageOrderItem">
-                            <table width="800px" align="center" class="orderPageOrderItemTable">
+                            <table width="800px" align="center" class="orderPageOrderItemTable" style="width: 55%;">
                                 <tr v-for="orderItem in bean.orderItems">
                                     <td align="left">
                                         <img width="40px" height="40px"
@@ -156,9 +158,9 @@
                                     </td>
 
                                     <td>
-                                        <a :href="'product?product.id='+orderItem.product.id">
+<!--                                        <a :href="'product?product.id='+orderItem.product.id">-->
                                             <span>{{orderItem.product.name}}</span>
-                                        </a>
+<!--                                        </a>-->
                                     </td>
                                     <td align="right">
 
@@ -184,6 +186,6 @@
 
 </div>
 
-<!--<div th:replace="include/admin/adminFooter::htmlFooter"></div>-->
+<div th:replace="include/admin/adminFooter::htmlFooter"></div>
 </body>
 </html>		

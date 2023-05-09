@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="include/fore/header::html"></head>
-<body>
-<div id="workingArea">
-    <div th:replace="include/fore/loginPage::html"></div>
+<body style="
+ /*font-size: 12px;*/
+ /*   font-family: Arial;*/
+ /*   min-width: 1024px;*/
+
+ /*   width: 100vw;*/
+ /*   height: 100vh;*/
+ /*   display: flex;*/
+    background: linear-gradient(45deg, rgb(7, 236, 255), rgb(252, 210, 0));">
+    <div id="workingArea" style="width: 100vw;
+    height: 100vh;">
+        <div th:replace="include/fore/loginPage::html"></div>
 <!--    <div th:replace="include/fore/footer::html"></div>-->
-</div>
+    </div>
 </body>
 </html>

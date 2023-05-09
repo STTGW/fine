@@ -1,5 +1,9 @@
-<div class="pageDiv" th:fragment="htmlPage">
-    <nav>
+<div style="position: fixed;
+    width: 100vw;
+    height: 100px;
+    bottom: 278px;" class="pageDiv" th:fragment="htmlPage">
+    <nav style="    position: fixed;
+    transform: translate(740px, 279px);">
         <ul class="pagination">
             <li :class="{ disabled: pagination.isFirstPage }">
 <!--                <a href="#nowhere" @click="jump('first')">«</a>-->

@@ -159,7 +159,9 @@
 
     <div th:replace="include/admin/adminPage::htmlPage"></div>
 
-    <div class="panel panel-warning addDiv">
+    <div class="panel panel-warning addDiv" style="    position: fixed;
+    bottom: 97px;
+    transform: translate(0px, 55px);">
         <div class="panel-heading">新增产品</div>
         <div class="panel-body">
             <table class="addTable">
@@ -200,6 +202,6 @@
     </div>
 </div>
 
-<!--<div th:replace="include/admin/adminFooter::htmlFooter"></div>-->
+<div th:replace="include/admin/adminFooter::htmlFooter"></div>
 </body>
 </html>		

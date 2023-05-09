@@ -13,7 +13,8 @@
     <span>欢迎来到杏林商城</span>
 
     <span th:if="${null!=session.user}">
-		<a href="login" th:text="${session.user.name}"></a>
+<!--		<a href="login" th:text="${session.user.name}"></a>-->
+		<a href="/" th:text="${session.user.name}"></a>
         <a href="editPassword.html">修改密码</a>
         <a href="editUsernameluo.html">个人中心</a>
 <!--        <a href="UserInfo">个人信息</a>-->

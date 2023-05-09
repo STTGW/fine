@@ -1,4 +1,5 @@
-<div th:fragment="html">
+<div style="height: 100vh;
+    width: 100vw;" th:fragment="html">
     <script>
         $(function () {
             var data4Vue = {
@@ -63,45 +64,74 @@
     </script>
 
 
-    <div id="loginDiv" style="position: relative">
+    <div id="loginDiv" style="    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
 <!--        <div class="simpleLogo">-->
 <!--            <a th:href="${application.contextPath}"><img src="img/site/simpleLogo.png"></a>-->
 <!--        </div>-->
-        <img id="loginBackgroundImg" class="loginBackgroundImg" src="img/site/loginBackground1.png" style="width: 100vw;height: 100vh">
-        <div id="loginSmallDiv" class="loginSmallDiv"  style="transform: translate(-345px, 109px); height: 332px">
+<!--        <img id="loginBackgroundImg" class="loginBackgroundImg" src="img/site/loginBackground1.png" style="width: 100vw;height: 100vh">-->
+        <div id="loginSmallDiv" class="loginSmallDiv"  style="height: 332px;width: 37vw;
+    height: 477px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(254, 254, 254, 0.53);
+    border-radius: 50px;position: inherit;">
             <div class="loginErrorMessageDiv">
-                <div class="alert alert-danger">
+                <div class="alert alert-danger" style="background-image: linear-gradient(160deg, rgb(0, 147, 233) 0%, rgb(128, 208, 199) 100%);color: black;    text-align: center;transform: translateY(224px);border-radius: 11px;
+    font-size: 18px;border-color: #eee0;
+">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
                     <span class="errorMessage">22</span>
                 </div>
             </div>
 
             <div class="login_acount_text"> 账户登录</div>
-            <div class="loginInput ">
-					<span class="loginInputIcon ">
-						<span class=" glyphicon glyphicon-user"></span>
-					</span>
-                <input v-model="user.name" placeholder="用户名" type="text">
+            <div class="loginInput "style="border: 0;">
+<!--					<span class="loginInputIcon ">-->
+<!--						<span class=" glyphicon glyphicon-user"></span>-->
+<!--					</span>-->
+                <input v-model="user.name" placeholder="用户名" type="text" style="border-radius: 6px;">
             </div>
 
-            <div class="loginInput ">
-					<span class="loginInputIcon ">
-						<span class=" glyphicon glyphicon-lock"></span>
-					</span>
-                <input v-model="user.password" type="password" placeholder="密码" >
+            <div class="loginInput " style="border: 0px;">
+<!--					<span class="loginInputIcon ">-->
+<!--						<span class=" glyphicon glyphicon-lock"></span>-->
+<!--					</span>-->
+                <input v-model="user.password" type="password" placeholder="密码" style="border-radius: 6px;">
             </div>
 
 <!--            <span class="text-danger">不要输入真实的天猫账号密码</span><br><br>-->
 
 
             <div style="margin-top:20px">
-                <button class="btn btn-block redButton" type="button" @click="login" style="color: white;background-color: #337ab7">登录</button>
+                <button class="btn btn-block redButton" type="button" @click="login" style="color: white;background-color: rgb(51, 122, 183);">登录</button>
             </div>
+
+                <div style="    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 7px;
+    margin: 9px 0;">如果您是新用户请往下</div>
             <div>
 
                 <!--                <a class="notImplementLink" href="#nowhere">忘记登录密码</a>-->
 
-                <a href="registerPage" class="pull-right">免费注册</a>
+                <a href="registerPage" class="pull-right" style="border: 1px solid rgb(236, 238, 240);
+    border-radius: 9px;
+    font-size: 18px;
+    color: #111;
+    padding: 0px 77px;
+    margin-top: 1px;
+    /* background: rgb(236, 238, 240); */
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);">创建您的杏林账户
+                </a>
             </div>
         </div>
     </div>

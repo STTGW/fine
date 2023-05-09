@@ -15,14 +15,88 @@
             margin: 0;
         }
 
+        body{
+            background: linear-gradient(45deg, white, #b6b6b6);
+        }
+        .title{
+            color: white;
+            font-size: x-large;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
         .container {
             display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px;
         }
 
-        .nickName {
-            margin: auto;
+        .container-1{
+            display: flex;
+            width: 400px;
+            height: 400px;
+            justify-content: center;
+            align-items: center;
+             flex-direction: column;
+            background: #ffffff8c;
+            border-radius: 20px;
+            transition: .4s;
         }
-    </style>
+        .container-1:hover{
+            background: #ffffff54;
+        }
+        .nickName {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100px;
+        }
+        .nickName div{
+            display: flex;
+        }
+        .line{
+            display: flex;
+        }
+        .line div,
+        #nick{
+            height: 25px;
+            width: 80px;
+            justify-content: center;
+            display: flex;
+        }
+        button{
+            border: 0;
+            height: 30px;
+            width: 77px;
+            border-radius: 10px;
+            transition: .4s;
+            background: #fafafa;
+        }
+        button:hover{
+            cursor: pointer;
+            border-radius: 20px;
+            background: #d7d7d7;
+        }
+        input{
+            border-radius: 10px;
+            outline: none;
+            border: 0;
+            height: 25px;
+            text-align: center;
+        }
+        .container-2{
+                display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            justify-content: space-around;
+            height: 200px;
+        }
+</style>
 </head>
 
 <body onload="getAll_info()">
@@ -95,19 +169,33 @@
 </script>
 
 <div class="container">
-    <div>个人中心</div>
-    <div class="nickName">
-        <span>昵称：</span>
-        <input class="nick-value"></input>
-        <button onclick="changeNick()">修改昵称</button>
+    <a href="/" style="position: absolute;
+    top: 20px;
+    left: 20px;"><img id="logo" src="img/site/xinxiaohui.png" class="logo" style="width: 150px;
+    border-radius: 50%;"></a>
+    <div class="title">个人中心</div>
+    <div class="container-1">
+        <div class="nickName">
+           <div>
+               <div id="nick">昵称：</div>
+               <input class="nick-value"></input>
+           </div>
+            <button onclick="changeNick()">修改昵称</button>
+        </div>
+        <div class="container-2">
+            <span>其他信息</span>
+            <div class="line">
+                <div>真实姓名</div><input type="text" class="container-2-input">
+            </div>
+            <div class="line">
+                <div>性别</div><input type="text" class="container-2-input">
+            </div>
+            <div class="line">
+                <div>简介</div><input type="text" class="container-2-input">
+            </div>
+        </div>
+        <button onclick="submitNewInfo()">提交修改</button>
     </div>
-    <div class="container-2">
-        <span>其他信息</span>
-        <span>真实姓名：</span><input type="text" class="container-2-input">
-        <span>性别：</span><input type="text" class="container-2-input">
-        <span>简介：</span><input type="text" class="container-2-input">
-    </div>
-    <button onclick="submitNewInfo()">提交修改</button>
 </div>
 </body>
 

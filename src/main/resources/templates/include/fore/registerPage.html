@@ -1,4 +1,4 @@
-<div style="display: flex;justify-content: center;transform: translateY(77px);" th:fragment="html">
+<div style="display: flex;justify-content: center;" th:fragment="html">
     <script>
         $(function () {
             var data4Vue = {
@@ -52,43 +52,57 @@
             });
         })
     </script>
-    <div class="registerDiv" style="border: #0770ca solid;width: 37vw;height: 477px;flex-direction: column;display: flex;justify-content: center;align-items: center;">
+    <div class="registerDiv" style="width: 37vw;height: 477px;flex-direction: column;display: flex;justify-content: center;align-items: center;    background: #fefefe87;
+    border-radius: 50px;
+">
         <div class="registerErrorMessageDiv">
-            <div class="alert alert-danger" role="alert" style="background-color: #27679e;color: #eee">
+            <div class="alert alert-danger" role="alert" style="    color: rgb(238, 238, 238);
+    background: linear-gradient(45deg, rgb(7, 236, 255), rgb(252, 210, 0));
+    /* background: rgba(254, 254, 254, 0.53); */
+    border: red;
+    border-radius: 50px;
+    border: red;
+}">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
-                <span class="errorMessage"></span>
+                <span class="errorMessage" style="color: black;"></span>
             </div>
         </div>
 
 
         <table class="registerTable" align="center">
             <tr>
-                <td class="registerTip registerTableLeftTD" style="width:160px">设置用户名称</td>
+                <td class="registerTip registerTableLeftTD" style="width: 170px;
+    transform: translateX(156px);
+    font-size: 16px;">设置用户名称</td>
                 <td></td>
             </tr>
             <tr>
                 <td class="registerTableLeftTD" style="width:160px">用户名称</td>
-                <td class="registerTableRightTD"><input v-model="user.name" placeholder="请输入您的用户"></td>
+                <td class="registerTableRightTD"><input v-model="user.name" placeholder="请输入您的用户" style="border-radius: 13px;"></td>
             </tr>
             <tr>
-                <td class="registerTip registerTableLeftTD" style="width:160px">设置登陆密码</td>
+                <td class="registerTip registerTableLeftTD" style="width: 156px;
+    transform: translateX(156px);
+    font-size: 16px;">设置登陆密码</td>
 <!--                <td class="registerTableRightTD">登陆时验证，保护账号信息</td>-->
             </tr>
             <tr>
                 <td class="registerTableLeftTD" style="width:160px">登陆密码</td>
-                <td class="registerTableRightTD"><input v-model="user.password" type="password" placeholder="请输入您的密码">
+                <td class="registerTableRightTD"><input v-model="user.password" type="password" placeholder="请输入您的密码" style="border-radius: 13px;">
                 </td>
             </tr>
             <tr>
                 <td class="registerTableLeftTD" style="width:160px">确认密码</td>
                 <td class="registerTableRightTD"><input v-model="user.repeatpassword" type="password"
-                                                        placeholder="请再次输入您的密码"></td>
+                                                        placeholder="请再次输入您的密码" style="border-radius: 13px;"></td>
             </tr>
 
             <tr>
                 <td colspan="2" class="registerButtonTD">
                     <a @click="register">
-                        <button style="width: 342px;transform: translateX(3px);background-color: #2088e2">立即注册</button>
+                        <button style="width: 342px;transform: translateX(3px);    background: linear-gradient(45deg, rgb(7, 236, 255), rgb(252, 210, 0));
+    color: black;
+    border-radius: 50px;">立即注册</button>
                     </a>
                 </td>
             </tr>

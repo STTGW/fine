@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="include/fore/header::html"></head>
-<body>
-<div id="workingArea">
+<body style="    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* background-color: #0093E9; */
+    /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+    background: linear-gradient(45deg, #07ecff, #fcd200);">
+<div id="workingArea" style="margin: auto;">
 <!--    <div th:replace="include/fore/top::html"></div>-->
 <!--    <div th:replace="include/fore/simpleSearch::html"></div>-->
-    <div th:replace="include/fore/registerPage::html"></div>
+    <div style="display: flex;
+    justify-content: center;
+    /* transform: translateY(77px); */
+    margin: auto;" th:replace="include/fore/registerPage::html"></div>
 <!--    <div th:replace="include/fore/footer::html"></div>-->
 </div>
 </body>
