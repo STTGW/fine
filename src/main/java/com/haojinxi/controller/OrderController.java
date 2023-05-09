@@ -119,8 +119,25 @@ public class OrderController {
     /*axios.min.js:8 GET http://localhost:8080/foreconfirmPay?oid=4 */
 //根据id获取订单信息
     @GetMapping("/foreconfirmPay")
-    public Order foreconfirmPay(Integer oid){
+    public Order foreconfirmPay(Integer oid,HttpSession session){
         Order order = orderService.getById(oid);
+
+        //新增代码
+        User user = (User) session.getAttribute("user");
+        Integer uid = user.getId();
+        QueryWrapper<Orderitem> wrapper = new QueryWrapper<>();
+        wrapper.eq("uid",uid)
+                .eq("oid",oid);
+        List<Orderitem> list = orderitemService.list(wrapper);
+        orderitemService.fillPorduct(list);
+        double total = orderitemService.getTotal(list);
+        order.setTotal(total);
+        order.setOrderItems(list);
+
+
+        System.out.println(list+"我试试看");
+        System.out.println(total+"我试试看");
+
         return order;
     }
 

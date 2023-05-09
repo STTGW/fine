@@ -70,6 +70,10 @@ public class Order implements Serializable {
     @TableField(exist = false)
     private User user;
 
+    @TableField(exist = false)
+    private List<Orderitem> orderitems;
+
+
     public String getStatusDesc(){
         String desc ="非法";
         switch(status){

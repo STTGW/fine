@@ -1,12 +1,138 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="include/fore/header::html"></head>
+<head th:include="include/fore/header::html">
+<!--<head th:include="include/fore/header::html">-->
+<!--    <title>Payment Success</title>-->
+</head>
 <body>
 <div id="workingArea">
     <div th:replace="include/fore/top::html"></div>
-    <div th:replace="include/fore/simpleSearch::html"></div>
-    <div th:replace="include/fore/cart/payedPage::html"></div>
-    <div th:replace="include/fore/footer::html"></div>
+<!--    <div th:replace="include/fore/simpleSearch::html"></div>-->
+<!--    <div th:replace="include/fore/cart/payedPage::html"></div>-->
+<!--    <div th:replace="include/fore/footer::html"></div>-->
+    <div class="container">
+        <h1>支付成功</h1>
+        <p class="success">&#10003; 恭喜你，付款成功! &#10003;</p>
+        <p>感谢对我们的支持. </p>
+        <ul>
+            <li><strong>支付时间:</strong>{{payDate}}</li>
+            <li><strong>支付方式</strong> 在线支持</li>
+            <li><strong>付款金额:</strong>{{total|formatMoney}}</li>
+        </ul> <a href="#" class="button">点我继续购物</a>
+    </div>
 </div>
+
+<style>
+    body {
+        font-family: "Arial", sans-serif;
+        background-color: #f7f7f7;
+        color: #444;
+    }
+
+    .container {
+        margin: 50px auto;
+        padding: 30px;
+        max-width: 600px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+        font-weight: bold;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    li {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .success {
+        color: #63c854;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #63c854;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 18px;
+        margin-top: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+        background-color: #4da742;
+        transform: translateY(-3px);
+    }
+</style>
+
+
+<script>
+    $(function () {
+        var oid = getUrlParms("out_trade_no");
+        var total = getUrlParms("total_amount");
+        console.log(total)
+        // var oid = getUrlParms("oid");
+        // var total = getUrlParms("total");
+        var data4Vue = {
+            uri: 'forepayed',
+            order: {},
+            total: 0,
+            payDate:''
+        };
+        //ViewModel
+        var vue = new Vue({
+            el: '#workingArea',
+            data: data4Vue,
+            mounted: function () { //mounted　表示这个 Vue 对象加载成功了
+                this.total = total;
+                this.load();
+            },
+            methods: {
+                load: function () {
+                    var url = this.uri + "?oid=" + oid;
+                    axios.get(url).then( (response)=> {
+                        const {data} = response;
+                        vue.order=data
+                        // console.log(data.payDate)
+                        vue.payDate = this.formateTime(data.payDate)
+                    });
+                },
+                formateTime:function(time){
+                    const date = new Date(time)
+                    console.log(date)
+                    const newDate = date.toLocaleString()
+                    return newDate
+                }
+            }
+        });
+
+    })
+
+</script>
+
 </body>
 </html>

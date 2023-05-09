@@ -82,11 +82,11 @@
             background: #d7d7d7;
         }
         input{
-            border-radius: 10px;
+            border-radius: 5px;
             outline: none;
             border: 0;
             height: 25px;
-            text-align: center;
+            /*text-align: center;*/
         }
         .container-2{
                 display: flex;
@@ -161,6 +161,7 @@
         axios.post(url,info).then(res=>{
             console.log(info)
             const {data} = res
+            alert(data)
             console.log(data)
         }).catch(err=>{
             console.log(err)

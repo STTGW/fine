@@ -1236,10 +1236,12 @@ table.productListTable {
 }
 
 table.productListTable th {
-    color: #999999;
+    /*color: #999999;*/
+    color: black;
     font-family: ����;
     font-weight: normal;
-    font-size: 12px;
+    /*font-size: 12px;*/
+    font-size: 20px;
     text-align: center;
     padding-bottom: 5px;
 }
@@ -1272,8 +1274,9 @@ a.orderItemProductLink {
 }
 
 a.orderItemProductLink:hover {
-    color: #666666;
-    text-decoration: underline;
+    /*color: #666666;*/
+    /*text-decoration: underline;*/
+    color: #C40000;
 }
 
 td.orderItemProductInfo {
@@ -1542,12 +1545,12 @@ a.cartProductLink {
 
 a.cartProductLink:hover {
     color: #C40000;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 
 div.cartProductLinkOutDiv {
     position: relative;
-    height: 80px;
+    height: 40px;
 }
 
 div.cartProductLinkInnerDiv {

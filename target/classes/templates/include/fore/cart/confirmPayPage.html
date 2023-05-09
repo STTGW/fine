@@ -25,79 +25,98 @@
 
         })
     </script>
-    <div class="confirmPayPageDiv">
-        <div class="confirmPayImageDiv">
-            <img src="img/site/comformPayFlow.png">
-            <div class="confirmPayTime1">
-                {{order.createDate | formatDateFilter('YYYY-MM-DD HH:mm:ss')}}
-            </div>
-            <div class="confirmPayTime2">
-                {{order.payDate | formatDateFilter('YYYY-MM-DD HH:mm:ss')}}
-            </div>
-            <div class="confirmPayTime3">
-                {{order.deliveryDate | formatDateFilter()}}
-            </div>
-        </div>
-        <div class="confirmPayOrderInfoDiv">
-            <div class="confirmPayOrderInfoText">我已收到货，同意支付宝付款</div>
-        </div>
+    <div class="confirmPayPageDiv" style="    display: flex;
+    flex-direction: column;">
+<!--        <div class="confirmPayImageDiv">-->
+<!--            <img src="img/site/comformPayFlow.png">-->
+<!--            <div class="confirmPayTime1">-->
+<!--                {{order.createDate | formatDateFilter('YYYY-MM-DD HH:mm:ss')}}-->
+<!--            </div>-->
+<!--            <div class="confirmPayTime2">-->
+<!--                {{order.payDate | formatDateFilter('YYYY-MM-DD HH:mm:ss')}}-->
+<!--            </div>-->
+<!--            <div class="confirmPayTime3">-->
+<!--                {{order.deliveryDate | formatDateFilter()}}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="confirmPayOrderInfoDiv">-->
+<!--            <div class="confirmPayOrderInfoText">我已收到货，同意支付宝付款</div>-->
+<!--        </div>-->
         <div class="confirmPayOrderItemDiv">
-            <div class="confirmPayOrderItemText">订单信息</div>
+            <div class="confirmPayOrderItemText" style="background: rgb(241, 239, 241);
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    font-size: 27px;
+    font-weight: 100;
+    width: 971px;
+    transform: translate(-9px,20px);">订单详情</div>
             <table class="confirmPayOrderItemTable">
-                <thead>
-                <tr>
-                    <th colspan="2">宝贝</th>
-                    <th width="120px">单价</th>
+                <thead style="background: white">
+                <tr style="    font-size: 20px;height: 45px;
+}">
+                    <th colspan="2">商品</th>
+                    <th width="120px">价格</th>
                     <th width="120px">数量</th>
-                    <th width="120px">商品总价</th>
-                    <th width="120px">运费</th>
+                    <th width="120px">小计</th>
+<!--                    <th width="120px">运费</th>-->
                 </tr>
                 </thead>
                 <tr v-for="oi in order.orderItems">
                     <td><img width="50px" :src="'img/productSingle_middle/'+oi.product.firstProductImage.id+'.jpg'">
                     </td>
-                    <td class="confirmPayOrderItemProductLink">
+                    <td class="confirmPayOrderItemProductLink" >
                         <a href="#nowhere">{{oi.product.name}}</a>
                     </td>
-                    <td>￥{{oi.product.originalPrice|formatMoneyFilter}}</td>
+                    <td style="    text-decoration: line-through;
+">￥{{oi.product.originalPrice|formatMoneyFilter}}</td>
                     <td>1</td>
                     <td><span class="conformPayProductPrice">￥{{oi.product.promotePrice|formatMoneyFilter}}</span></td>
-                    <td><span>快递 ： 0.00 </span></td>
+<!--                    <td><span>快递 ： 0.00 </span></td>-->
                 </tr>
             </table>
 
-            <div class="confirmPayOrderItemText pull-right">
-                实付款： <span class="confirmPayOrderItemSumPrice">￥{{order.total|formatMoneyFilter}}</span>
+            <div class="confirmPayOrderItemText pull-right" style="font-size: 20px;
+    font-weight: 900;
+}">
+                总计：<span class="confirmPayOrderItemSumPrice">￥{{order.total|formatMoneyFilter}}</span>
             </div>
 
 
         </div>
-        <div class="confirmPayOrderDetailDiv">
+<!--        <div class="confirmPayOrderDetailDiv">-->
 
-            <table class="confirmPayOrderDetailTable">
-                <tr>
-                    <td>订单编号：</td>
-                    <td>{{order.orderCode}} <img width="23px" src="img/site/confirmOrderTmall.png"></td>
-                </tr>
-                <tr>
-                    <td>卖家昵称：</td>
-                    <td>天猫商铺 <span class="confirmPayOrderDetailWangWangGif"></span></td>
-                </tr>
-                <tr>
-                    <td>收货信息：</td>
-                    <td>{{order.address}}，{{order.receiver}}， {{order.mobile}}，{{order.post}}</td>
-                </tr>
-                <tr>
-                    <td>成交时间：</td>
-                    <td>{{order.createDate|formatDateFilter}}</td>
-                </tr>
-            </table>
+<!--            <table class="confirmPayOrderDetailTable">-->
+<!--                <tr>-->
+<!--                    <td>订单编号：</td>-->
+<!--&lt;!&ndash;                    <td>{{order.orderCode}} <img width="23px" src="img/site/confirmOrderTmall.png"></td>&ndash;&gt;-->
+<!--                    <td>{{order.orderCode}}</td>-->
+<!--                </tr>-->
 
-        </div>
-        <div class="confirmPayButtonDiv">
-            <div class="confirmPayWarning">请收到货后，再确认收货！否则您可能钱货两空！</div>
+<!--&lt;!&ndash;                <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>卖家昵称：</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>天猫 <span class="confirmPayOrderDetailWangWangGif"></span></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                </tr>&ndash;&gt;-->
+
+<!--                <tr>-->
+<!--                    <td>收货信息：</td>-->
+<!--                    <td>{{order.address}}，{{order.receiver}}， {{order.mobile}}，{{order.post}}</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>成交时间：</td>-->
+<!--                    <td>{{order.createDate|formatDateFilter}}</td>-->
+<!--                </tr>-->
+<!--            </table>-->
+
+<!--        </div>-->
+
+        <div class="confirmPayButtonDiv" style="border: 0px;display: flex;
+    justify-content: center;">
+<!--            <div class="confirmPayWarning">请收到货后，再确认收货！否则您可能钱货两空！</div>-->
             <a :href="'orderConfirmed?oid='+order.id">
-                <button class="confirmPayButton">确认支付</button>
+                <button class="confirmPayButton" style="background: #5CB85C;
+    border: #5CB85C;
+    border-radius: 20px;width: 100px;
+    height: 57px;
+    font-size: 20px;">确认收货</button>
             </a>
         </div>
     </div>

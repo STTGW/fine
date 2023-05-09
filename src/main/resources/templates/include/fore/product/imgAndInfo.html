@@ -171,11 +171,11 @@
     height: 45px;
     display: flex;
     align-items: center;
-    transform: translateX(-33px);">价格</span>
-                        <span class="originalPriceYuan" style="    font-size: 33px;
-    transform: translateX(-25px);">¥</span>
-                        <span class="originalPrice" style="    font-size: 30px;
-    transform: translateX(16px);">
+    transform: translate(71px, -6px);;">价格</span>
+                        <span class="originalPriceYuan" style="font-size: 24px;
+    transform: translate(69px, -1px);">¥</span>
+                        <span class="originalPrice" style="font-size: 19px;
+    transform: translate(76px, 3px);">
 	                    	{{p.originalPrice|formatMoneyFilter}}
 	                    </span>
                     </div>
@@ -186,10 +186,11 @@
     width: 50px;
     color: #c40000;
     font-weight: 900;">促销价 </span>
-                        <span class="promotionPriceYuan" style="transform: translate(3px, 20px);
+                        <span class="promotionPriceYuan" style="transform: translate(3px, -16px);
     font-size: 50px;">¥</span>
                         <span class="promotionPrice" style="    font-size: 50px;
-    transform: translate(35px, 20px);">
+    transform: translate(34px, -16px);
+}">
 							{{p.promotePrice|formatMoneyFilter}}
 	                    </span>
                     </div>

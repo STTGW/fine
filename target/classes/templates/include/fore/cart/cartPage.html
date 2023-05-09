@@ -68,7 +68,7 @@
                 } else {
                     $(this).attr("src", "img/site/cartSelected.png");
                     $(this).attr("selectit", "selectit")
-                    $(this).parents("tr.cartProductItemTR").css("background-color", "#FFF8E1");
+                    $(this).parents("tr.cartProductItemTR").css("background-color", "#80808029");
                 }
                 syncSelect();
                 syncCreateOrderButton();
@@ -90,7 +90,7 @@
                     $(".cartProductItemIfSelected").each(function () {
                         $(this).attr("src", "img/site/cartSelected.png");
                         $(this).attr("selectit", "selectit");
-                        $(this).parents("tr.cartProductItemTR").css("background-color", "#FFF8E1");
+                        $(this).parents("tr.cartProductItemTR").css("background-color", "#80808029");
                     });
                 }
                 syncCreateOrderButton();
@@ -165,7 +165,7 @@
                 $("button.createOrderButton").css("background-color", "#C40000");
                 $("button.createOrderButton").removeAttr("disabled");
             } else {
-                $("button.createOrderButton").css("background-color", "#AAAAAA");
+                $("button.createOrderButton").css("background-color", "rgb(35, 35, 66)");
                 $("button.createOrderButton").attr("disabled", "disabled");
             }
 
@@ -224,27 +224,30 @@
 
     <title>购物车</title>
     <div class="cartDiv">
-        <div class="cartTitle pull-right">
-            <span>已选商品  (不含运费)</span>
-            <span class="cartTitlePrice">￥0.00</span>
-            <button class="createOrderButton" disabled="disabled">结 算</button>
-        </div>
+<!--        <div class="cartTitle pull-right">-->
+<!--            <span>已选商品  (不含运费)</span>-->
+<!--            <span class="cartTitlePrice">￥0.00</span>-->
+<!--            <button class="createOrderButton" disabled="disabled">结 算</button>-->
+<!--        </div>-->
 
+        <div style="font-size: 20px;margin-bottom: 20px;">全部种类<span><span style="color: #C40000">({{orderItems.length}})</span></span></div>
+        <div style="background: rgb(241, 239, 241);border: 1px solid rgba(128, 128, 128, 0.3);font-size: 27px;
+    font-weight: 100;padding-left: 20px;">商品详情</div>
 
         <div class="cartProductList">
             <table class="cartProductTable">
                 <thead>
-                <tr>
+                <tr style="border: 1px solid #8080804d;">
                     <th class="selectAndImage">
                         <img selectit="false" class="selectAllItem" src="img/site/cartNotSelected.png">
                         全选
 
                     </th>
-                    <th>商品信息</th>
-                    <th>单价</th>
-                    <th>数量</th>
-                    <th width="120px">金额</th>
-                    <th class="operation">操作</th>
+                    <th>商品</th>
+                    <th style="text-align: center;">价格</th>
+                    <th style="text-align: center;">数量</th>
+                    <th width="120px" style="transform: translateX(19px);">小计</th>
+                    <th class="operation" >操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -259,29 +262,32 @@
                     <td>
                         <div class="cartProductLinkOutDiv">
                             <a :href="'product?pid='+oi.product.id" class="cartProductLink">{{oi.product.name}}</a>
-                            <div class="cartProductLinkInnerDiv">
-                                <img src="img/site/creditcard.png" title="支持信用卡支付">
-                                <img src="img/site/7day.png" title="消费者保障服务,承诺7天退货">
-                                <img src="img/site/promise.png" title="消费者保障服务,承诺如实描述">
-                            </div>
+<!--                            <div class="cartProductLinkInnerDiv">-->
+<!--                                <img src="img/site/creditcard.png" title="支持信用卡支付">-->
+<!--                                <img src="img/site/7day.png" title="消费者保障服务,承诺7天退货">-->
+<!--                                <img src="img/site/promise.png" title="消费者保障服务,承诺如实描述">-->
+<!--                            </div>-->
                         </div>
 
                     </td>
                     <td>
-                        <span class="cartProductItemOringalPrice">￥{{oi.product.originalPrice|formatMoneyFilter}}</span>
+<!--                        <span class="cartProductItemOringalPrice">￥{{oi.product.originalPrice|formatMoneyFilter}}</span>-->
                         <span class="cartProductItemPromotionPrice">￥{{oi.product.promotePrice|formatMoneyFilter}}</span>
 
                     </td>
                     <td>
 
-                        <div class="cartProductChangeNumberDiv">
+                        <div class="cartProductChangeNumberDiv" style="
+    display: flex;
+    justify-content: space-around;">
                             <span class="hidden orderItemStock " :pid="oi.product.id">{{oi.product.stock}}</span>
                             <span class="hidden orderItemPromotePrice "
                                   :pid="oi.product.id">{{oi.product.promotePrice}}</span>
-                            <a :pid="oi.product.id" class="numberMinus" href="#nowhere">-</a>
+                            <a :pid="oi.product.id" class="numberMinus" href="#nowhere">减</a>
                             <input :pid="oi.product.id" :oiid="oi.id" class="orderItemNumberSetting" autocomplete="off"
-                                   :value="oi.number">
-                            <a :stock="oi.product.stock" :pid="oi.product.id" class="numberPlus" href="#nowhere">+</a>
+                                   :value="oi.number" style="    text-align: center;
+">
+                            <a :stock="oi.product.stock" :pid="oi.product.id" class="numberPlus" href="#nowhere">加</a>
                         </div>
 
                     </td>
@@ -300,17 +306,21 @@
             </table>
         </div>
 
-        <div class="cartFoot">
+        <div class="cartFoot" style="background: #F1EFF1">
             <img selectit="false" class="selectAllItem" src="img/site/cartNotSelected.png">
             <span>全选</span>
             <!-- 		<a href="#">删除</a> -->
 
             <div class="pull-right">
-                <span>已选商品 <span class="cartSumNumber">0</span> 件</span>
+                <span style="position: absolute;
+    transform: translateX(-176px);">已选商品 <span class="cartSumNumber">0</span>（件）</span>
 
-                <span>合计 (不含运费): </span>
+<!--                <span>合计 (不含运费): </span>-->
+                <span style="color: #C40000;
+    font-weight: bold;
+    font-size: 20px;">总计</span>
                 <span class="cartSumPrice">￥0.00</span>
-                <button class="createOrderButton" disabled="disabled">结 算</button>
+                <button class="createOrderButton" disabled="disabled" style="background: rgb(35, 35, 66)">结 算</button>
             </div>
 
         </div>
